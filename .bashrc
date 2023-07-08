@@ -151,10 +151,19 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-## mein custom stuff
+## custom stuff
 export EDITOR="code --wait"
-
 alias k='kubectl'
 
+
+# for go
+export PATH=$PATH:/usr/local/go/bin
+alias k=kubectl
+complete -o default -F __start_kubectl k
+source <(kubectl completion bash)
+
+# for python
+export PIPENV_VENV_IN_PROJECT=1
+export PYENV_ROOT="$HOME/.pyenv"
 
 unset rc
